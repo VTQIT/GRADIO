@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEST Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .app-icon img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-800 text-white flex flex-col items-center p-4">
+  <!-- Video Player -->
+  <div class="w-full max-w-4xl aspect-video mb-4">
+    <video class="w-full h-full rounded-2xl shadow-lg" controls>
+      <source src="assets/sample.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Logo + Weather -->
+  <div class="flex flex-col items-center mb-4">
+    <div class="flex items-center gap-3">
+      <img src="assets/icons/search.png" alt="Search Logo" class="h-12" />
+      <img src="assets/icons/NEST_SEARCH.png" alt="Nest Search Logo" class="h-12" />
+      <span class="text-lg">☁️ 28°</span>
+    </div>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="relative w-full max-w-2xl mb-2">
+    <input type="text" placeholder="Search..."
+      class="w-full p-3 pl-12 pr-12 rounded-full bg-gray-700 text-white focus:outline-none shadow-md" />
+    <!-- Local Search Icon inside input -->
+    <img src="assets/icons/search.png" alt="Search Icon" class="absolute left-4 top-3 w-6 h-6 opacity-70" />
+  </div>
+
+  <!-- Subtitle (moved below search) -->
+  <p class="text-sm text-gray-300 mb-6">
+    Nested Educational Entertainment Ecommerce Search Topology
+  </p>
+
+  <!-- App Grid -->
+  <div class="grid grid-cols-4 gap-6 max-w-4xl">
+    <!-- Row 1 -->
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/johnny.png" alt="Gov Johnny">
+      </div>
+      <p class="mt-2 text-xs">Gov Johnny</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/digoy.png" alt="Mayor Digoy">
+      </div>
+      <p class="mt-2 text-xs">Mayor Digoy</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/cantilan.png" alt="Cantilan LGU">
+      </div>
+      <p class="mt-2 text-xs">Cantilan LGU</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/wecantilan.png" alt="We Cantilan">
+      </div>
+      <p class="mt-2 text-xs">We❤Cantilan</p>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/GRADIO.png" alt="Gradio FM">
+      </div>
+      <p class="mt-2 text-xs">Gradio FM</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/smileflex.png" alt="Smileflex">
+      </div>
+      <p class="mt-2 text-xs">Smileflex</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/musify.png" alt="Musify">
+      </div>
+      <p class="mt-2 text-xs">Musify</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/gamehub.png" alt="Game Hub">
+      </div>
+      <p class="mt-2 text-xs">Game Hub</p>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/orangeware.png" alt="OrangeWare">
+      </div>
+      <p class="mt-2 text-xs">OrangeWare</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/wikipedia.png" alt="Wikipedia">
+      </div>
+      <p class="mt-2 text-xs">Wikipedia</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/ebooks.png" alt="eBooks">
+      </div>
+      <p class="mt-2 text-xs">eBooks</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/news.png" alt="News Daily">
+      </div>
+      <p class="mt-2 text-xs">News Daily</p>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/eatbulaga.png" alt="Eat Bulaga">
+      </div>
+      <p class="mt-2 text-xs">Eat Bulaga</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/showtime.jpg" alt="Showtime">
+      </div>
+      <p class="mt-2 text-xs">Showtime</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/wetube.png" alt="WeTube">
+      </div>
+      <p class="mt-2 text-xs">WeTube</p>
+    </div>
+
+    <div class="flex flex-col items-center text-center">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+        <img src="assets/icons/videoke.png" alt="Videoke Star">
+      </div>
+      <p class="mt-2 text-xs">Videoke Star</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <!-- Bottom Logo -->
+<div class="mt-6 mb-4">
+<img src="assets/icons/14.png" alt="WeOwn Logo" class="h-12 mx-auto">
+<p class="text-center text-xs text-gray-400">Hosted at Neomlink KITE Satellite Server</p>
+</div>
+</body>
+</html>
