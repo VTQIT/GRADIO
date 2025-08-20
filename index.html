@@ -46,10 +46,24 @@
     <img src="assets/icons/search.png" alt="Search Icon" class="absolute left-4 top-3 w-6 h-6 opacity-70" />
   </div>
 
-  <!-- Subtitle -->
-  <p class="text-sm text-gray-300 mb-6">
+  <!-- Subtitle with marquee effect -->
+<div class="w-full overflow-hidden mb-6">
+  <p class="text-[10px] sm:text-sm text-gray-300 whitespace-nowrap animate-marquee inline-block">
     Nested Educational Entertainment Ecommerce Search Topology
   </p>
+</div>
+
+<style>
+  @keyframes marquee {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  .animate-marquee {
+    display: inline-block;
+    min-width: 100%;
+    animation: marquee 12s linear infinite;
+  }
+</style>
 
   <!-- App Slider -->
   <div class="w-full max-w-4xl">
