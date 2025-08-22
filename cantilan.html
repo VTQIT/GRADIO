@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeLove Cantilan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-blue-800 text-white shadow-lg">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold">WeLove Cantilan</h1>
+      <nav class="space-x-6">
+        <a href="home.html" class="hover:text-yellow-300">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-cover bg-center h-[80vh]" style="background-image: url('images/cantilan.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+      <div class="text-center text-white">
+        <h2 class="text-4xl md:text-6xl font-bold mb-4">Discover the Beauty of Cantilan</h2>
+        <p class="text-lg md:text-2xl mb-6">The Cradle of Towns in Surigao del Sur</p>
+        <a href="#places" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-bold hover:bg-yellow-300">Explore Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="max-w-6xl mx-auto py-16 px-6">
+    <div class="text-center mb-10">
+      <h3 class="text-3xl font-bold mb-4">About Cantilan</h3>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Cantilan is a coastal paradise in Surigao del Sur, known for its pristine beaches, crystal-clear waters, and vibrant culture. 
+        Often called the “Cradle of Towns,” it’s the perfect destination for nature lovers and adventurers alike.
+      </p>
+    </div>
+  </section>
+
+  <!-- Places Gallery -->
+  <section id="places" class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-10">Beautiful Places</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Place 1 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <img src="images/tinago.png" alt="Lake" class="w-full h-56 object-cover">
+          <div class="p-4">
+            <h4 class="text-xl font-bold mb-2">Lake Tinago</h4>
+            <p class="text-gray-600">A serene lake surrounded by lush greenery, perfect for kayaking and picnics.</p>
+          </div>
+        </div>
+        <!-- Place 2 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <img src="images/beaches.jpg" alt="Beach" class="w-full h-56 object-cover">
+          <div class="p-4">
+            <h4 class="text-xl font-bold mb-2">Cantilan Beaches</h4>
+            <p class="text-gray-600">Crystal-clear waters and white sandy shores ideal for swimming and relaxation.</p>
+          </div>
+        </div>
+        <!-- Place 3 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <img src="images/church.jpg" alt="Church" class="w-full h-56 object-cover">
+          <div class="p-4">
+            <h4 class="text-xl font-bold mb-2">Historic Church</h4>
+            <p class="text-gray-600">A landmark reflecting Cantilan’s rich culture and deep faith.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="max-w-6xl mx-auto py-16 px-6">
+    <div class="text-center mb-8">
+      <h3 class="text-3xl font-bold mb-4">Get in Touch</h3>
+      <p class="text-gray-600">We’d love to hear from you! Share your Cantilan stories with us.</p>
+    </div>
+    <form class="max-w-xl mx-auto space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-300">
+      <input type="email" placeholder="Your Email" class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-300">
+      <textarea placeholder="Your Message" rows="4" class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"></textarea>
+      <button class="bg-blue-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 w-full">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-6 mt-12">
+    <div class="max-w-6xl mx-auto text-center">
+      <p>&copy; 2025 WeLove Cantilan. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

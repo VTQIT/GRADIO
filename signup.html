@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+
+  <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Create a new account</h2>
+    <p class="text-center text-gray-500 mb-6">It's quick and easy.</p>
+
+    <form action="#" method="POST" class="space-y-4">
+      <!-- First and Last Name -->
+      <div class="grid grid-cols-2 gap-4">
+        <input type="text" placeholder="First name" class="border rounded-lg p-3 w-full focus:ring focus:ring-blue-300">
+        <input type="text" placeholder="Last name" class="border rounded-lg p-3 w-full focus:ring focus:ring-blue-300">
+      </div>
+
+      <!-- Email -->
+      <input type="email" placeholder="Mobile number or email" class="border rounded-lg p-3 w-full focus:ring focus:ring-blue-300">
+
+      <!-- Password -->
+      <input type="password" placeholder="New password" class="border rounded-lg p-3 w-full focus:ring focus:ring-blue-300">
+
+      <!-- Birthday -->
+      <div>
+        <label class="text-sm text-gray-600">Birthday</label>
+        <div class="grid grid-cols-3 gap-2 mt-1">
+          <select class="border rounded-lg p-2">
+            <option>Day</option>
+            <option>1</option><option>2</option><option>3</option>
+          </select>
+          <select class="border rounded-lg p-2">
+            <option>Month</option>
+            <option>Jan</option><option>Feb</option><option>Mar</option>
+          </select>
+          <select class="border rounded-lg p-2">
+            <option>Year</option>
+            <option>2000</option><option>2001</option><option>2002</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div>
+        <label class="text-sm text-gray-600">Gender</label>
+        <div class="flex space-x-4 mt-1">
+          <label class="flex items-center border rounded-lg px-3 py-2 cursor-pointer">
+            <input type="radio" name="gender" class="mr-2"> Female
+          </label>
+          <label class="flex items-center border rounded-lg px-3 py-2 cursor-pointer">
+            <input type="radio" name="gender" class="mr-2"> Male
+          </label>
+          <label class="flex items-center border rounded-lg px-3 py-2 cursor-pointer">
+            <input type="radio" name="gender" class="mr-2"> Custom
+          </label>
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <p class="text-xs text-gray-500">
+        By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy.
+      </p>
+
+      <!-- Button -->
+      <button type="submit" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700">
+        Sign Up
+      </button>
+    </form>
+  </div>
+
+</body>
+</html>
