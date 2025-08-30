@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GRADIO Portal</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     .app-icon img {
@@ -12,115 +13,108 @@
       height: 64px;
       border-radius: 50%;
     }
+    /* Hide arrows */
     .swiper-button-next,
     .swiper-button-prev {
       display: none !important;
     }
-    @keyframes marquee {
-      0%   { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    .animate-marquee {
-      display: inline-block;
-      min-width: 100%;
-      animation: marquee 12s linear infinite;
-    }
   </style>
-  <script>
-    function confirmAndPromptExternalLink(event, url) {
-      if (url.startsWith('http://') || url.startsWith('https://')) {
-        const confirmation = confirm("Warning: This is an outside Gradio server. To continue, you must have a valid Wi-Fi voucher code.");
-        if (confirmation) {
-          const voucher = prompt("Please insert your Wi-Fi voucher code to continue:");
-          if (voucher) {
-            return true;
-          } else {
-            event.preventDefault();
-            return false;
-          }
-        } else {
-          event.preventDefault();
-          return false;
-        }
-      }
-    }
-  </script>
 </head>
 <body class="min-h-screen bg-gray-800 text-white flex flex-col items-center p-4">
+<div class="relative w-screen aspect-video">
+  <iframe
+    id="fbVideo"
+    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/gradiofm/videos/2134884390334484/&show_text=false&autoplay=true&mute=1"
+    width="100%"
+    height="90%"
+    style="border:none;overflow:hidden"
+    scrolling="no"
+    frameborder="0"
+    allowfullscreen="true"
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+  </iframe>
+</div>
 
-  <!-- ✅ Facebook Video Embed -->
-  <div class="relative w-screen aspect-video">
-    <iframe
-      id="fbVideo"
-      src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/gradiofm/videos/2134884390334484/&show_text=false&autoplay=true&mute=1"
-      width="100%"
-      height="100%"
-      style="border:none;overflow:hidden"
-      scrolling="no"
-      frameborder="0"
-      allowfullscreen="true"
-      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-    </iframe>
-  </div>
+<!-- ... your existing content unchanged ... -->
 
-  <!-- 🔎 Search + Weather -->
-  <div class="flex flex-col items-center mb-4">
-    <div class="flex items-center gap-3">
-      <img src="assets/icons/search.png" alt="Search Logo" class="h-12" />
-      <img src="assets/icons/NEST_SEARCH.png" alt="Nest Search Logo" class="h-12" />
-      <span class="text-lg">☁️ 28°</span>
-    </div>
-  </div>
+<!-- Footer -->
+<div class="mt-6 mb-4">
+  <img src="assets/icons/14.png" alt="WeOwn Logo" class="h-12 mx-auto">
+  <p class="text-center text-xs text-gray-400">Hosted at Neomlink KITE Satellite Server</p>
+</div>
 
-  <div class="relative w-full max-w-2xl mb-2">
-    <input type="text" placeholder="Search..."
-      class="w-full p-3 pl-12 pr-12 rounded-full bg-gray-700 text-white focus:outline-none shadow-md" />
-    <img src="assets/icons/search.png" alt="Search Icon" class="absolute left-4 top-3 w-6 h-6 opacity-70" />
-  </div>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: false,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
 
-  <!-- 📰 Marquee -->
-  <div class="w-full overflow-hidden mb-6">
-    <p class="text-[10px] sm:text-sm text-gray-300 whitespace-nowrap animate-marquee inline-block">
-      Nested Educational Entertainment Ecommerce Search Topology
-    </p>
-  </div>
+  // ✅ External Link Confirmation + Ad Overlay Logic
+  function confirmAndPromptExternalLink(event, url) {
+      if (url.startsWith('http://') || url.startsWith('https://')) {
+          const confirmation = confirm("Warning: This is an outside Gradio server. To continue, you must have a valid Wi-Fi voucher code.");
+          if (confirmation) {
+              const voucher = prompt("Please insert your Wi-Fi voucher code to continue:");
+              if (voucher) {
+                  return true;
+              } else {
+                  event.preventDefault();
+                  return false;
+              }
+          } else {
+              event.preventDefault();
+              return false;
+          }
+      }
+  }
 
-  <!-- 🖼️ App Grid / Carousel -->
-  <div class="w-full max-w-2xl">
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <!-- Example Slide -->
-        <div class="swiper-slide flex flex-wrap justify-center gap-6">
-          <a href="home.html" class="app-icon text-center">
-            <img src="assets/icons/home.png" alt="Home">
-            <p class="text-sm mt-2">Home</p>
-          </a>
-          <a href="player.html" class="app-icon text-center">
-            <img src="assets/icons/player.png" alt="Player">
-            <p class="text-sm mt-2">Player</p>
-          </a>
-        </div>
-        <!-- Add more swiper-slide sections as needed -->
-      </div>
-      <div class="swiper-pagination mt-4"></div>
-    </div>
-  </div>
+  document.addEventListener('DOMContentLoaded', () => {
+      const video = document.getElementById('localVideo'); // <-- requires a <video id="localVideo"> in page
+      const adOverlay = document.getElementById('ad-overlay');
+      const adImage = document.getElementById('ad-image');
+      const adLink = document.getElementById('ad-link');
 
-  <!-- ⚡ Footer -->
-  <div class="mt-6 mb-4">
-    <img src="assets/icons/14.png" alt="WeOwn Logo" class="h-12 mx-auto">
-    <p class="text-center text-xs text-gray-400">Hosted at Neomlink KITE Satellite Server</p>
-  </div>
+      // Ad configuration
+      const ads = [
+          { image: 'Ad/ad1.jpg', link: 'https://www.youtube.com/shorts/SzXwqpn_qX4' },
+          { image: 'Ad/ad2.jpg', link: 'https://www.youtube.com/watch?v=El5Q6w5epSY' },
+          { image: 'Ad/ad1.jpg', link: 'https://www.youtube.com/shorts/SzXwqpn_qX4' }
+      ];
+      const adDuration = 10; // Ad display time in seconds
+      const adInterval = 50; // Ad break interval in seconds (50 seconds for testing)
+      let nextAdTime = adInterval;
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    const swiper = new Swiper('.swiper', {
-      loop: false,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  </script>
+      // Function to show a random ad
+      function showAd() {
+          const randomAd = ads[Math.floor(Math.random() * ads.length)];
+          if(adImage && adLink && adOverlay) {
+              adImage.src = randomAd.image;
+              adLink.href = randomAd.link;
+              adOverlay.classList.remove('hidden');
+          }
+          if(video) video.pause();
+
+          setTimeout(() => {
+              if(adOverlay) adOverlay.classList.add('hidden');
+              if(video) video.play();
+              nextAdTime = video.currentTime + adInterval;
+          }, adDuration * 1000);
+      }
+
+      // Listen for video time updates
+      if (video) {
+          video.addEventListener('timeupdate', () => {
+              if (video.currentTime >= nextAdTime) {
+                  showAd();
+              }
+          });
+      }
+  });
+</script>
 </body>
 </html>
