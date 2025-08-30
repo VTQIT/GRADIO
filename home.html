@@ -13,29 +13,257 @@
       height: 64px;
       border-radius: 50%;
     }
-    /* Hide arrows */
     .swiper-button-next,
     .swiper-button-prev {
       display: none !important;
     }
+    /* Overlay for ads */
+    #ad-overlay {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.85);
+      padding: 10px;
+      border-radius: 10px;
+      z-index: 9999;
+      display: none;
+      text-align: center;
+    }
+    #ad-overlay img {
+      max-width: 300px;
+      border-radius: 8px;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      min-width: 100%;
+      animation: marquee 12s linear infinite;
+    }
   </style>
 </head>
 <body class="min-h-screen bg-gray-800 text-white flex flex-col items-center p-4">
+
+<!-- Video container -->
 <div class="relative w-screen aspect-video">
   <iframe
     id="fbVideo"
     src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/gradiofm/videos/2134884390334484/&show_text=false&autoplay=true&mute=1"
     width="100%"
-    height="90%"
+    height="100%"
     style="border:none;overflow:hidden"
     scrolling="no"
     frameborder="0"
     allowfullscreen="true"
     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
   </iframe>
+
+  <!-- Ad Overlay -->
+  <div id="ad-overlay">
+    <a id="ad-link" href="#" target="_blank">
+      <img id="ad-image" src="" alt="Advertisement">
+    </a>
+    <p class="text-sm mt-2 text-gray-300">Ad will close automatically...</p>
+  </div>
 </div>
 
-<!-- ... your existing content unchanged ... -->
+<!-- 🔹 Logo + Weather -->
+<div class="flex flex-col items-center mb-4 mt-6">
+  <div class="flex items-center gap-3">
+    <img src="assets/icons/search.png" alt="Search Logo" class="h-12" />
+    <img src="assets/icons/NEST_SEARCH.png" alt="Nest Search Logo" class="h-12" />
+    <span class="text-lg">☁️ 28°</span>
+  </div>
+</div>
+
+<!-- 🔹 Search Bar -->
+<div class="relative w-full max-w-2xl mb-2">
+  <input type="text" placeholder="Search..."
+    class="w-full p-3 pl-12 pr-12 rounded-full bg-gray-700 text-white focus:outline-none shadow-md" />
+  <img src="assets/icons/search.png" alt="Search Icon" class="absolute left-4 top-3 w-6 h-6 opacity-70" />
+</div>
+
+<!-- 🔹 Subtitle with marquee effect -->
+<div class="w-full overflow-hidden mb-6">
+  <p class="text-[10px] sm:text-sm text-gray-300 whitespace-nowrap animate-marquee inline-block">
+    Nested Educational Entertainment Ecommerce Search Topology
+  </p>
+</div>
+
+<!-- 🔹 App Slider -->
+<div class="w-full max-w-2xl">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <div class="grid grid-cols-3 gap-6">
+          <div class="flex flex-col items-center text-center">
+            <a href="https://surigaodelsur.gov.ph/" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/johnny.png" alt="Gov Johnny">
+              </div>
+              <p class="mt-2 text-xs">Gov Johnny</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="https://cantilan.gov.ph/" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/digoy.png" alt="Mayor Digoy">
+              </div>
+              <p class="mt-2 text-xs">Mayor Digoy</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="https://www.facebook.com/profile.php?id=100068345255709" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/cantilan.png" alt="Cantilan LGU">
+              </div>
+              <p class="mt-2 text-xs">Cantilan LGU</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="cantilan.html" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/wecantilan.png" alt="We Cantilan">
+              </div>
+              <p class="mt-2 text-xs">We❤Cantilan</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="home.html" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/GRADIO.png" alt="Gradio FM">
+              </div>
+              <p class="mt-2 text-xs">Gradio FM</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="smileflex.html" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/smileflex.png" alt="Smileflex">
+              </div>
+              <p class="mt-2 text-xs">Smileflex</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <div class="grid grid-cols-3 gap-6">
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/musify.png" alt="Musify">
+              </div>
+              <p class="mt-2 text-xs">Musify</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/gamehub.png" alt="Game Hub">
+              </div>
+              <p class="mt-2 text-xs">Game Hub</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/orangeware.png" alt="OrangeWare">
+              </div>
+              <p class="mt-2 text-xs">OrangeWare</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/wikipedia.png" alt="Wikipedia">
+              </div>
+              <p class="mt-2 text-xs">Wikipedia</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/ebooks.png" alt="eBooks">
+              </div>
+              <p class="mt-2 text-xs">eBooks</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/news.png" alt="News Daily">
+              </div>
+              <p class="mt-2 text-xs">News Daily</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide">
+        <div class="grid grid-cols-3 gap-6">
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/eatbulaga.png" alt="Eat Bulaga">
+              </div>
+              <p class="mt-2 text-xs">Eat Bulaga</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/showtime.jpg" alt="Showtime">
+              </div>
+              <p class="mt-2 text-xs">Showtime</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/wetube.png" alt="WeTube">
+              </div>
+              <p class="mt-2 text-xs">WeTube</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/videoke.png" alt="Videoke Star">
+              </div>
+              <p class="mt-2 text-xs">Videoke Star</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/bible.jpg" alt="Bible">
+              </div>
+              <p class="mt-2 text-xs">Bible</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/google.jpg" alt="Google">
+              </div>
+              <p class="mt-2 text-xs">Google</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="swiper-pagination mt-4"></div>
+  </div>
+</div>
 
 <!-- Footer -->
 <div class="mt-6 mb-4">
@@ -43,7 +271,7 @@
   <p class="text-center text-xs text-gray-400">Hosted at Neomlink KITE Satellite Server</p>
 </div>
 
-<!-- Swiper JS -->
+<!-- Swiper + Ad JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   const swiper = new Swiper('.swiper', {
@@ -54,66 +282,40 @@
     },
   });
 
-  // ✅ External Link Confirmation + Ad Overlay Logic
-  function confirmAndPromptExternalLink(event, url) {
-      if (url.startsWith('http://') || url.startsWith('https://')) {
-          const confirmation = confirm("Warning: This is an outside Gradio server. To continue, you must have a valid Wi-Fi voucher code.");
-          if (confirmation) {
-              const voucher = prompt("Please insert your Wi-Fi voucher code to continue:");
-              if (voucher) {
-                  return true;
-              } else {
-                  event.preventDefault();
-                  return false;
-              }
-          } else {
-              event.preventDefault();
-              return false;
-          }
-      }
-  }
-
+  // ✅ Ad Overlay System
   document.addEventListener('DOMContentLoaded', () => {
-      const video = document.getElementById('localVideo'); // <-- requires a <video id="localVideo"> in page
       const adOverlay = document.getElementById('ad-overlay');
       const adImage = document.getElementById('ad-image');
       const adLink = document.getElementById('ad-link');
 
-      // Ad configuration
       const ads = [
           { image: 'Ad/ad1.jpg', link: 'https://www.youtube.com/shorts/SzXwqpn_qX4' },
           { image: 'Ad/ad2.jpg', link: 'https://www.youtube.com/watch?v=El5Q6w5epSY' },
           { image: 'Ad/ad1.jpg', link: 'https://www.youtube.com/shorts/SzXwqpn_qX4' }
       ];
-      const adDuration = 10; // Ad display time in seconds
-      const adInterval = 50; // Ad break interval in seconds (50 seconds for testing)
+      const adDuration = 10;
+      const adInterval = 50;
       let nextAdTime = adInterval;
 
-      // Function to show a random ad
       function showAd() {
           const randomAd = ads[Math.floor(Math.random() * ads.length)];
-          if(adImage && adLink && adOverlay) {
-              adImage.src = randomAd.image;
-              adLink.href = randomAd.link;
-              adOverlay.classList.remove('hidden');
-          }
-          if(video) video.pause();
+          adImage.src = randomAd.image;
+          adLink.href = randomAd.link;
+          adOverlay.style.display = 'block';
 
           setTimeout(() => {
-              if(adOverlay) adOverlay.classList.add('hidden');
-              if(video) video.play();
-              nextAdTime = video.currentTime + adInterval;
+              adOverlay.style.display = 'none';
+              nextAdTime += adInterval;
           }, adDuration * 1000);
       }
 
-      // Listen for video time updates
-      if (video) {
-          video.addEventListener('timeupdate', () => {
-              if (video.currentTime >= nextAdTime) {
-                  showAd();
-              }
-          });
-      }
+      setInterval(() => {
+          nextAdTime -= 1;
+          if (nextAdTime <= 0) {
+              showAd();
+              nextAdTime = adInterval;
+          }
+      }, 1000);
   });
 </script>
 </body>
