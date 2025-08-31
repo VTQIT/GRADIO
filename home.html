@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GRADIO Portal</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     .app-icon img {
@@ -13,27 +12,10 @@
       height: 64px;
       border-radius: 50%;
     }
+    /* Hide arrows */
     .swiper-button-next,
     .swiper-button-prev {
       display: none !important;
-    }
-    /* ✅ Overlay for ads (modified to be smaller and centered) */
-    #ad-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0,0,0,0.85);
-      padding: 8px;
-      border-radius: 10px;
-      z-index: 9999;
-      display: none;
-      text-align: center;
-      width: 200px;
-    }
-    #ad-overlay img {
-      max-width: 180px;
-      border-radius: 6px;
     }
     @keyframes marquee {
       0%   { transform: translateX(100%); }
@@ -46,64 +28,57 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-gray-800 text-white flex flex-col items-center p-4">
-
-<!-- Video container -->
-<div class="relative w-screen aspect-video">
-  <iframe
-    id="fbVideo"
-    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/gradiofm/videos/2134884390334484/&show_text=false&autoplay=true&mute=1"
-    width="100%"
-    height="100%"
-    style="border:none;overflow:hidden"
-    scrolling="no"
-    frameborder="0"
-    allowfullscreen="true"
-    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-  </iframe>
-
-  <!-- ✅ Only ONE Ad Overlay -->
-  <div id="ad-overlay">
+<body class="min-h-screen bg-black text-white flex flex-col items-center p-4">
+  <!-- Video Section -->
+  <div class="relative w-screen aspect-video">
+    <iframe
+      id="fbVideo"
+      src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/gradiofm/videos/2134884390334484/&show_text=false&autoplay=true&mute=1"
+      width="100%"
+      height="90%"
+      style="border:none;overflow:hidden"
+      scrolling="no"
+      frameborder="0"
+      allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+    </iframe>
+  </div>
+    
+   <!-- Ad Overlay -->
+  <div id="ad-overlay" class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-75 z-10 hidden">
     <a id="ad-link" href="#" target="_blank">
-      <img id="ad-image" src="" alt="Advertisement">
+      <img id="ad-image" src="#" alt="Advertisement" class="max-w-md w-auto h-auto rounded-lg shadow-xl">
     </a>
-    <p class="text-xs mt-2 text-gray-300">Ad will close automatically...</p>
   </div>
-</div>
 
-<!-- 🔹 Logo + Weather -->
-<div class="flex flex-col items-center mb-4 mt-6">
-  <div class="flex items-center gap-3">
-    <img src="assets/icons/search.png" alt="Search Logo" class="h-12" />
-    <img src="assets/icons/NEST_SEARCH.png" alt="Nest Search Logo" class="h-12" />
-    <span class="text-lg">☁️ 28°</span>
+  <div class="flex flex-col items-center mb-4">
+    <div class="flex items-center gap-3">
+      <img src="assets/icons/search.png" alt="Search Logo" class="h-12" />
+      <img src="assets/icons/NEST_SEARCH.png" alt="Nest Search Logo" class="h-12" />
+      <span class="text-lg">☁️ 28°</span>
+    </div>
   </div>
-</div>
 
-<!-- 🔹 Search Bar -->
-<div class="relative w-full max-w-2xl mb-2">
-  <input type="text" placeholder="Search..."
-    class="w-full p-3 pl-12 pr-12 rounded-full bg-gray-700 text-white focus:outline-none shadow-md" />
-  <img src="assets/icons/search.png" alt="Search Icon" class="absolute left-4 top-3 w-6 h-6 opacity-70" />
-</div>
+  <div class="relative w-full max-w-2xl mb-2">
+    <input type="text" placeholder="Search..."
+      class="w-full p-3 pl-12 pr-12 rounded-full bg-gray-700 text-white focus:outline-none shadow-md" />
+    <img src="assets/icons/search.png" alt="Search Icon" class="absolute left-4 top-3 w-6 h-6 opacity-70" />
+  </div>
 
-<!-- 🔹 Subtitle with marquee effect -->
-<div class="w-full overflow-hidden mb-6">
+  <div class="w-full overflow-hidden mb-6">
   <p class="text-[10px] sm:text-sm text-gray-300 whitespace-nowrap animate-marquee inline-block">
     Nested Educational Entertainment Ecommerce Search Topology
   </p>
 </div>
 
-<!-- 🔹 App Slider -->
 <div class="w-full max-w-2xl">
   <div class="swiper">
     <div class="swiper-wrapper">
-
-      <!-- Slide 1 -->
+      
       <div class="swiper-slide">
         <div class="grid grid-cols-3 gap-6">
-          <div class="flex flex-col items-center text-center">
-            <a href="https://surigaodelsur.gov.ph/" target="_blank" class="flex flex-col items-center">
+          <div class="flex flex-col items-center">
+            <a href="https://surigaodelsur.gov.ph/" target="_blank" onclick="return confirmAndPromptExternalLink(event, 'https://surigaodelsur.gov.ph/');" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/johnny.png" alt="Gov Johnny">
               </div>
@@ -111,7 +86,7 @@
             </a>
           </div>
           <div class="flex flex-col items-center text-center">
-            <a href="https://cantilan.gov.ph/" target="_blank" class="flex flex-col items-center">
+            <a href="https://cantilan.gov.ph/" target="_blank" onclick="return confirmAndPromptExternalLink(event, 'https://cantilan.gov.ph/');" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/digoy.png" alt="Mayor Digoy">
               </div>
@@ -119,7 +94,7 @@
             </a>
           </div>
           <div class="flex flex-col items-center text-center">
-            <a href="https://www.facebook.com/profile.php?id=100068345255709" target="_blank" class="flex flex-col items-center">
+            <a href="https://www.facebook.com/profile.php?id=100068345255709" target="_blank" onclick="return confirmAndPromptExternalLink(event, 'https://www.facebook.com/profile.php?id=100068345255709');" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/cantilan.png" alt="Cantilan LGU">
               </div>
@@ -127,7 +102,7 @@
             </a>
           </div>
           <div class="flex flex-col items-center text-center">
-            <a href="cantilan.html" target="_blank" class="flex flex-col items-center">
+            <a href="cantilan.php" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/wecantilan.png" alt="We Cantilan">
               </div>
@@ -135,7 +110,7 @@
             </a>
           </div>
           <div class="flex flex-col items-center text-center">
-            <a href="home.html" target="_blank" class="flex flex-col items-center">
+            <a href="home.php" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/GRADIO.png" alt="Gradio FM">
               </div>
@@ -143,7 +118,7 @@
             </a>
           </div>
           <div class="flex flex-col items-center text-center">
-            <a href="smileflex.html" target="_blank" class="flex flex-col items-center">
+            <a href="smileflex.php" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/smileflex.png" alt="Smileflex">
               </div>
@@ -153,7 +128,6 @@
         </div>
       </div>
 
-      <!-- Slide 2 -->
       <div class="swiper-slide">
         <div class="grid grid-cols-3 gap-6">
           <div class="flex flex-col items-center text-center">
@@ -207,7 +181,6 @@
         </div>
       </div>
 
-      <!-- Slide 3 -->
       <div class="swiper-slide">
         <div class="grid grid-cols-3 gap-6">
           <div class="flex flex-col items-center text-center">
@@ -262,67 +235,27 @@
       </div>
 
     </div>
-    <div class="swiper-pagination mt-4"></div>
+
+    <div class="swiper-pagination mt-2"></div>
+    </div>
   </div>
-</div>
 
-<!-- Footer -->
-<div class="mt-6 mb-4">
-  <img src="assets/icons/14.png" alt="WeOwn Logo" class="h-12 mx-auto">
-  <p class="text-center text-xs text-gray-400">Hosted at Neomlink KITE Satellite Server</p>
-</div>
+  <!-- Footer -->
+  <div class="mt-6 mb-4">
+    <img src="assets/icons/14.png" alt="WeOwn Logo" class="h-12 mx-auto">
+    <p class="text-center text-xs text-gray-400">Hosted at Neomlink KITE Satellite Server</p>
+  </div>
 
-<!-- Swiper + Ad JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  const swiper = new Swiper('.swiper', {
-    loop: false,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  });
-
-  // ✅ Ad Overlay System
-  document.addEventListener('DOMContentLoaded', () => {
-      const adOverlay = document.getElementById('ad-overlay');
-      const adImage = document.getElementById('ad-image');
-      const adLink = document.getElementById('ad-link');
-      const fbVideo = document.getElementById('fbVideo');
-
-      const ads = [
-          { image: 'Ad/ad1.jpg', link: 'https://www.youtube.com/shorts/SzXwqpn_qX4' },
-          { image: 'Ad/ad2.jpg', link: 'https://www.youtube.com/watch?v=El5Q6w5epSY' },
-          { image: 'Ad/ad3.jpg', link: 'https://www.example.com' }
-      ];
-      const adDuration = 7;   // seconds per ad
-      const adInterval = 60;  // interval between ads (1 min)
-      let nextAdTime = adInterval;
-
-      function showAd() {
-          const randomAd = ads[Math.floor(Math.random() * ads.length)];
-          adImage.src = randomAd.image;
-          adLink.href = randomAd.link;
-          adOverlay.style.display = 'block';
-
-          // Pause video (reload src trick)
-          const originalSrc = fbVideo.src;
-          fbVideo.src = "";
-
-          setTimeout(() => {
-              adOverlay.style.display = 'none';
-              fbVideo.src = originalSrc; // resume video
-              nextAdTime = adInterval;   // reset timer
-          }, adDuration * 1000);
-      }
-
-      setInterval(() => {
-          nextAdTime -= 1;
-          if (nextAdTime <= 0) {
-              showAd();
-          }
-      }, 1000);
-  });
-</script>
+  <!-- Swiper Script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
 </body>
 </html>
