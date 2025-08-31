@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GRADIO Portal</title>
+  <title>GRADIO PORTAL</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
@@ -121,7 +121,7 @@
               </a>
             </div>
             <div class="flex flex-col items-center text-center">
-              <a href="smileflex.php" target="_blank" class="flex flex-col items-center">
+              <a href="smileflex.html" target="_blank" class="flex flex-col items-center">
                 <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                   <img src="assets/icons/smileflex.png" alt="Smileflex">
                 </div>
@@ -276,7 +276,7 @@
     // Function to hide ad
     function hideAd() {
       adOverlay.classList.add('hidden');
-      adImage.src = '#'; // Reset image
+      adImage.src = 'Ad/ad2.jpg'; // Reset image
       adLink.href = '#'; // Reset link
     }
 
@@ -285,13 +285,14 @@
 
     // Show ad after 5 seconds (customize as needed)
     setTimeout(() => {
-      showAd('assets/ads/sample-ad.jpg', 'https://example.com'); // Replace with actual ad URL and link
-    }, 5000);
+      showAd('Ad/ad1.jpg', 'https://example.com'); // Replace with actual ad URL and link
+    }, 5000
 
     // Auto-hide ad after 15 seconds
     setTimeout(hideAd, 15000);
   </script>
 </body>
 </html>
+
 
 
