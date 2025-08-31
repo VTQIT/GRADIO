@@ -44,11 +44,14 @@
     </iframe>
   </div>
     
-   <!-- Ad Overlay -->
+  <!-- Ad Overlay -->
   <div id="ad-overlay" class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-75 z-10 hidden">
-    <a id="ad-link" href="#" target="_blank">
-      <img id="ad-image" src="#" alt="Advertisement" class="max-w-md w-auto h-auto rounded-lg shadow-xl">
-    </a>
+    <div class="relative">
+      <a id="ad-link" href="#" target="_blank">
+        <img id="ad-image" src="#" alt="Advertisement" class="max-w-md w-auto h-auto rounded-lg shadow-xl">
+      </a>
+      <button id="close-ad" class="absolute top-2 right-2 bg-gray-800 text-white rounded-full w-8 h-8 flex items-center justify-center focus:outline-none">✕</button>
+    </div>
   </div>
 
   <div class="flex flex-col items-center mb-4">
@@ -66,177 +69,177 @@
   </div>
 
   <div class="w-full overflow-hidden mb-6">
-  <p class="text-[10px] sm:text-sm text-gray-300 whitespace-nowrap animate-marquee inline-block">
-    Nested Educational Entertainment Ecommerce Search Topology
-  </p>
-</div>
+    <p class="text-[10px] sm:text-sm text-gray-300 whitespace-nowrap animate-marquee inline-block">
+      Nested Educational Entertainment Ecommerce Search Topology
+    </p>
+  </div>
 
-<div class="w-full max-w-2xl">
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      
-      <div class="swiper-slide">
-        <div class="grid grid-cols-3 gap-6">
-          <div class="flex flex-col items-center">
-            <a href="https://surigaodelsur.gov.ph/" target="_blank" onclick="return confirmAndPromptExternalLink(event, 'https://surigaodelsur.gov.ph/');" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/johnny.png" alt="Gov Johnny">
-              </div>
-              <p class="mt-2 text-xs">Gov Johnny</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="https://cantilan.gov.ph/" target="_blank" onclick="return confirmAndPromptExternalLink(event, 'https://cantilan.gov.ph/');" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/digoy.png" alt="Mayor Digoy">
-              </div>
-              <p class="mt-2 text-xs">Mayor Digoy</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="https://www.facebook.com/profile.php?id=100068345255709" target="_blank" onclick="return confirmAndPromptExternalLink(event, 'https://www.facebook.com/profile.php?id=100068345255709');" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/cantilan.png" alt="Cantilan LGU">
-              </div>
-              <p class="mt-2 text-xs">Cantilan LGU</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="cantilan.php" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/wecantilan.png" alt="We Cantilan">
-              </div>
-              <p class="mt-2 text-xs">We❤Cantilan</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="home.php" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/GRADIO.png" alt="Gradio FM">
-              </div>
-              <p class="mt-2 text-xs">Gradio FM</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="smileflex.php" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/smileflex.png" alt="Smileflex">
-              </div>
-              <p class="mt-2 text-xs">Smileflex</p>
-            </a>
+  <div class="w-full max-w-2xl">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        
+        <div class="swiper-slide">
+          <div class="grid grid-cols-3 gap-6">
+            <div class="flex flex-col items-center">
+              <a href="https://surigaodelsur.gov.ph/" target="_blank" onclick="return confirmAndPromptExternalLink(event, 'https://surigaodelsur.gov.ph/');" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/johnny.png" alt="Gov Johnny">
+                </div>
+                <p class="mt-2 text-xs">Gov Johnny</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="https://cantilan.gov.ph/" target="_blank" onclick="return confirmAndPromptExternalLink(event, 'https://cantilan.gov.ph/');" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/digoy.png" alt="Mayor Digoy">
+                </div>
+                <p class="mt-2 text-xs">Mayor Digoy</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="https://www.facebook.com/profile.php?id=100068345255709" target="_blank" onclick="return confirmAndPromptExternalLink(event, 'https://www.facebook.com/profile.php?id=100068345255709');" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/cantilan.png" alt="Cantilan LGU">
+                </div>
+                <p class="mt-2 text-xs">Cantilan LGU</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="cantilan.php" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/wecantilan.png" alt="We Cantilan">
+                </div>
+                <p class="mt-2 text-xs">We❤Cantilan</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="home.php" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/GRADIO.png" alt="Gradio FM">
+                </div>
+                <p class="mt-2 text-xs">Gradio FM</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="smileflex.php" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/smileflex.png" alt="Smileflex">
+                </div>
+                <p class="mt-2 text-xs">Smileflex</p>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="swiper-slide">
-        <div class="grid grid-cols-3 gap-6">
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/musify.png" alt="Musify">
-              </div>
-              <p class="mt-2 text-xs">Musify</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/gamehub.png" alt="Game Hub">
-              </div>
-              <p class="mt-2 text-xs">Game Hub</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/orangeware.png" alt="OrangeWare">
-              </div>
-              <p class="mt-2 text-xs">OrangeWare</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/wikipedia.png" alt="Wikipedia">
-              </div>
-              <p class="mt-2 text-xs">Wikipedia</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/ebooks.png" alt="eBooks">
-              </div>
-              <p class="mt-2 text-xs">eBooks</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/news.png" alt="News Daily">
-              </div>
-              <p class="mt-2 text-xs">News Daily</p>
-            </a>
+        <div class="swiper-slide">
+          <div class="grid grid-cols-3 gap-6">
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/musify.png" alt="Musify">
+                </div>
+                <p class="mt-2 text-xs">Musify</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/gamehub.png" alt="Game Hub">
+                </div>
+                <p class="mt-2 text-xs">Game Hub</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/orangeware.png" alt="OrangeWare">
+                </div>
+                <p class="mt-2 text-xs">OrangeWare</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/wikipedia.png" alt="Wikipedia">
+                </div>
+                <p class="mt-2 text-xs">Wikipedia</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/ebooks.png" alt="eBooks">
+                </div>
+                <p class="mt-2 text-xs">eBooks</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/news.png" alt="News Daily">
+                </div>
+                <p class="mt-2 text-xs">News Daily</p>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="swiper-slide">
-        <div class="grid grid-cols-3 gap-6">
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/eatbulaga.png" alt="Eat Bulaga">
-              </div>
-              <p class="mt-2 text-xs">Eat Bulaga</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/showtime.jpg" alt="Showtime">
-              </div>
-              <p class="mt-2 text-xs">Showtime</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/wetube.png" alt="WeTube">
-              </div>
-              <p class="mt-2 text-xs">WeTube</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/videoke.png" alt="Videoke Star">
-              </div>
-              <p class="mt-2 text-xs">Videoke Star</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/bible.jpg" alt="Bible">
-              </div>
-              <p class="mt-2 text-xs">Bible</p>
-            </a>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <a href="#" target="_blank" class="flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/google.jpg" alt="Google">
-              </div>
-              <p class="mt-2 text-xs">Google</p>
-            </a>
+        <div class="swiper-slide">
+          <div class="grid grid-cols-3 gap-6">
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/eatbulaga.png" alt="Eat Bulaga">
+                </div>
+                <p class="mt-2 text-xs">Eat Bulaga</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/showtime.jpg" alt="Showtime">
+                </div>
+                <p class="mt-2 text-xs">Showtime</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/wetube.png" alt="WeTube">
+                </div>
+                <p class="mt-2 text-xs">WeTube</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/videoke.png" alt="Videoke Star">
+                </div>
+                <p class="mt-2 text-xs">Videoke Star</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/bible.jpg" alt="Bible">
+                </div>
+                <p class="mt-2 text-xs">Bible</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-center text-center">
+              <a href="#" target="_blank" class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                  <img src="assets/icons/google.jpg" alt="Google">
+                </div>
+                <p class="mt-2 text-xs">Google</p>
+              </a>
+            </div>
           </div>
         </div>
+
       </div>
 
-    </div>
-
-    <div class="swiper-pagination mt-2"></div>
+      <div class="swiper-pagination mt-2"></div>
     </div>
   </div>
 
@@ -256,6 +259,37 @@
         clickable: true,
       },
     });
+
+    // Ad overlay functionality
+    const adOverlay = document.getElementById('ad-overlay');
+    const adImage = document.getElementById('ad-image');
+    const adLink = document.getElementById('ad-link');
+    const closeAdButton = document.getElementById('close-ad');
+
+    // Function to show ad with dynamic content
+    function showAd(imageUrl, linkUrl) {
+      adImage.src = imageUrl || 'assets/ads/default-ad.jpg'; // Fallback image
+      adLink.href = linkUrl || '#'; // Fallback link
+      adOverlay.classList.remove('hidden');
+    }
+
+    // Function to hide ad
+    function hideAd() {
+      adOverlay.classList.add('hidden');
+      adImage.src = '#'; // Reset image
+      adLink.href = '#'; // Reset link
+    }
+
+    // Event listener for close button
+    closeAdButton.addEventListener('click', hideAd);
+
+    // Show ad after 5 seconds (customize as needed)
+    setTimeout(() => {
+      showAd('assets/ads/sample-ad.jpg', 'https://example.com'); // Replace with actual ad URL and link
+    }, 5000);
+
+    // Auto-hide ad after 15 seconds
+    setTimeout(hideAd, 15000);
   </script>
 </body>
 </html>
