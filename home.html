@@ -17,7 +17,7 @@
     .swiper-button-prev {
       display: none !important;
     }
-    /* Overlay for ads */
+    /* ✅ Overlay for ads */
     #ad-overlay {
       position: absolute;
       top: 10%;
@@ -61,7 +61,7 @@
     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
   </iframe>
 
-  <!-- Ad Overlay -->
+  <!-- ✅ Only ONE Ad Overlay -->
   <div id="ad-overlay">
     <a id="ad-link" href="#" target="_blank">
       <img id="ad-image" src="" alt="Advertisement">
@@ -287,14 +287,15 @@
       const adOverlay = document.getElementById('ad-overlay');
       const adImage = document.getElementById('ad-image');
       const adLink = document.getElementById('ad-link');
+      const fbVideo = document.getElementById('fbVideo');
 
       const ads = [
           { image: 'Ad/ad1.jpg', link: 'https://www.youtube.com/shorts/SzXwqpn_qX4' },
           { image: 'Ad/ad2.jpg', link: 'https://www.youtube.com/watch?v=El5Q6w5epSY' },
-          { image: 'Ad/ad1.jpg', link: 'https://www.youtube.com/shorts/SzXwqpn_qX4' }
+          { image: 'Ad/ad3.jpg', link: 'https://www.example.com' }
       ];
-      const adDuration = 10;
-      const adInterval = 50;
+      const adDuration = 7;   // seconds per ad
+      const adInterval = 60;  // interval between ads (1 min)
       let nextAdTime = adInterval;
 
       function showAd() {
@@ -303,9 +304,14 @@
           adLink.href = randomAd.link;
           adOverlay.style.display = 'block';
 
+          // Pause video (reload src trick)
+          const originalSrc = fbVideo.src;
+          fbVideo.src = "";
+
           setTimeout(() => {
               adOverlay.style.display = 'none';
-              nextAdTime += adInterval;
+              fbVideo.src = originalSrc; // resume video
+              nextAdTime = adInterval;   // reset timer
           }, adDuration * 1000);
       }
 
@@ -313,7 +319,6 @@
           nextAdTime -= 1;
           if (nextAdTime <= 0) {
               showAd();
-              nextAdTime = adInterval;
           }
       }, 1000);
   });
