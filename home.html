@@ -266,26 +266,24 @@
     const closeAdButton = document.getElementById('close-ad');
 
     function showAd(imageUrl, linkUrl) {
-      adImage.src = imageUrl || 'Ad/ad1.jpg';
-      adLink.href = linkUrl || '#';
-      adOverlay.classList.remove('hidden');
-    }
+  adImage.src = imageUrl || 'Ad/ad1.jpg';
+  adLink.href = linkUrl || '#';
+  adOverlay.classList.remove('hidden');
 
-    function hideAd() {
-      adOverlay.classList.add('hidden');
-      adImage.src = 'Ad/ad2.jpg';
-      adLink.href = '#';
-    }
+  // Auto-hide after 7 seconds
+  setTimeout(hideAd, 5000);
+}
 
-    closeAdButton.addEventListener('click', hideAd);
+function hideAd() {
+  adOverlay.classList.add('hidden');
+  adImage.src = 'Ad/ad2.jpg';
+  adLink.href = '#';
+}
 
-    // Show ad after 1 minute
-    setTimeout(() => {
-      showAd('Ad/ad1.jpg', 'https://example.com');
-    }, 60000);
-
-    // Auto-hide ad after 15 seconds
-    setTimeout(hideAd, 7000);
+// Show ad after 1 minute
+setTimeout(() => {
+  showAd('Ad/ad1.jpg', 'https://example.com');
+}, 60000);
   </script>
 </body>
 </html>
