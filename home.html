@@ -40,7 +40,7 @@
   </iframe>
 </div>
 
-<!-- 🖼️ Ad Overlay -->
+<!-- 🖼️ Default Ad Overlay -->
 <div id="ad-overlay" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 z-10 hidden">
   <div class="relative p-2 bg-black rounded-xl shadow-lg">
     <a id="ad-link" href="#" target="_blank">
@@ -49,6 +49,33 @@
     <button id="close-ad" class="absolute -top-3 -right-3 bg-gray-800 text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg">✕</button>
   </div>
 </div>
+
+<!-- 🟢 Sara Duterte Support Pop-up -->
+<div id="sara-ad" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 z-20 hidden">
+  <div class="relative bg-green-700 rounded-xl shadow-xl p-6 max-w-sm text-center animate-slideUp">
+    <!-- Sara Image -->
+    <img src="Ad/sara.jpg" alt="Sara Duterte" 
+         class="w-32 h-32 rounded-full mx-auto mb-3 border-4 border-white shadow-lg">
+
+    <!-- Rotating Slogan -->
+    <h2 id="sara-slogan" class="text-xl font-bold mb-4 transition-opacity duration-700 opacity-100">
+      One Philippines, One Future, One Sara.
+    </h2>
+
+    <!-- Button -->
+    <a href="https://www.facebook.com/indaysaraduterteofficial" target="_blank"
+       class="inline-block bg-white text-green-700 font-semibold px-4 py-2 rounded-full shadow hover:bg-gray-100">
+      Learn More
+    </a>
+
+    <!-- Close Button -->
+    <button id="closeSaraAd" 
+            class="absolute -top-3 -right-3 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg">
+      ✕
+    </button>
+  </div>
+</div>
+
 
 <!-- 🔎 Header -->
 <div class="flex flex-col items-center mb-4 mt-2">
@@ -76,7 +103,6 @@
 <div class="w-full max-w-2xl">
   <div class="swiper">
     <div class="swiper-wrapper">
-
       <!-- Slide 1 -->
       <div class="swiper-slide">
         <div class="grid grid-cols-3 gap-6">
@@ -160,7 +186,6 @@
           </div>
         </div>
       </div>
-
     </div>
     <div class="swiper-pagination mt-2"></div>
   </div>
@@ -196,10 +221,8 @@
       <span class="text-sm">🔊</span>
       <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="1" class="w-full accent-blue-500">
     </div>
-    </div>
   </div>
 </div>
-
 
 <!-- 🌍 Footer Navigation -->
 <div class="flex justify-center items-center mb-6">
@@ -224,11 +247,46 @@
 <script>
 const swiper = new Swiper('.swiper',{ loop:false,pagination:{el:'.swiper-pagination',clickable:true} });
 
-// Ad overlay
+// Ad overlay (default ads)
 const adOverlay=document.getElementById('ad-overlay'),adImage=document.getElementById('ad-image'),adLink=document.getElementById('ad-link');
 function showAd(img,link){ adImage.src=img||'Ad/ad1.jpg'; adLink.href=link||'#'; adOverlay.classList.remove('hidden'); setTimeout(hideAd,5000); }
 function hideAd(){ adOverlay.classList.add('hidden'); adImage.src='Ad/ad2.jpg'; adLink.href='#'; }
 setTimeout(()=>{ showAd('Ad/ad1.jpg','https://example.com'); },60000);
+
+// Sara slogans
+  const slogans = [
+    "One Philippines, One Future, One Sara.",
+    "Inday ng Bayan."
+  ];
+  let sloganIndex = 0;
+  const sloganEl = document.getElementById("sara-slogan");
+  const saraPopup = document.getElementById("sara-ad");
+
+  // Show popup after 40s
+  setTimeout(() => {
+    saraPopup.classList.remove("hidden");
+
+    // Auto-close after 5s
+    setTimeout(() => {
+      saraPopup.classList.add("hidden");
+    }, 5000);
+
+    // Rotate slogans every 5s with fade
+    setInterval(() => {
+      sloganEl.classList.add("opacity-0");
+      setTimeout(() => {
+        sloganIndex = (sloganIndex + 1) % slogans.length;
+        sloganEl.textContent = slogans[sloganIndex];
+        sloganEl.classList.remove("opacity-0");
+      }, 700);
+    }, 5000);
+
+  }, 40000);
+
+  // Manual close
+  document.getElementById("closeSaraAd").onclick = () => {
+    saraPopup.classList.add("hidden");
+  };
 
 // Weather
 const weatherSpan=document.getElementById('weather');
@@ -245,7 +303,8 @@ fetchWeather(); setInterval(fetchWeather,600000);
 // Clock + audio
 function updateClock(){ document.getElementById("liveClock").textContent=new Date().toLocaleTimeString(); }
 setInterval(updateClock,1000); updateClock();
-const audio=document.getElementById("audioPlayer"),timeDisplay=document.getElementById("timeDisplay"),volumeControl=document.getElementById("volumeControl");
+const timeDisplay=document.getElementById("timeDisplay"),volumeControl=document.getElementById("volumeControl");
+const audio=new Audio("http://192.168.0.111:8090"); // stream source
 window.addEventListener("load",()=>{ audio.play().catch(()=>console.log("Autoplay blocked until interaction")); });
 audio.ontimeupdate=()=>{ const m=Math.floor(audio.currentTime/60),s=Math.floor(audio.currentTime%60).toString().padStart(2,"0"); timeDisplay.textContent=`${m}:${s}`; };
 volumeControl.addEventListener("input",e=>{ audio.volume=e.target.value; });
