@@ -14,11 +14,19 @@
 
   /* Marquee */
   @keyframes marquee { from{transform:translateX(100%);} to{transform:translateX(-100%);} }
-  .animate-marquee { display:inline-block; padding-left:100%; animation:marquee 12s linear infinite; }
+  .animate-marquee { display:inline-block; padding-left:100%; animation:marquee 12s linear infinite; will-change: transform; }
 
   .nest-logo { height:28px; width:145px; object-fit:contain; }
   @keyframes slideUp { from{transform:translateY(100%);opacity:0;} to{transform:translateY(0);opacity:1;} }
   .animate-slideUp { animation:slideUp .8s ease-out forwards; }
+
+  /* New pulse animation for ad */
+  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0.4);} 50%{box-shadow:0 0 0 10px rgba(255,255,255,0);} }
+  .animate-pulse-ad { animation:pulse 2s ease-in-out infinite; }
+
+  /* Scale-in animation for ad image */
+  @keyframes scaleIn { from{transform:scale(0.5);opacity:0;} to{transform:scale(1);opacity:1;} }
+  .animate-scaleIn { animation:scaleIn .5s ease-out forwards; }
 
   /* Footer planets */
   @keyframes spin-cw { from{transform:rotate(0);} to{transform:rotate(360deg);} }
@@ -40,42 +48,39 @@
   </iframe>
 </div>
 
-<!-- 🖼️ Default Ad Overlay -->
-<div id="ad-overlay" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 z-10 hidden">
-  <div class="relative p-2 bg-black rounded-xl shadow-lg">
+<!-- 🖼️ Marketing Ad Overlay -->
+<div id="ad-overlay" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 z-20 hidden">
+  <div class="relative bg-yellow-100 rounded-xl shadow-xl p-6 sm:p-8 max-w-[90vw] sm:max-w-sm text-center animate-pulse-ad">
     <a id="ad-link" href="#" target="_blank">
-      <img id="ad-image" src="Ad/ad1.jpg" alt="Advertisement" class="max-w-[150px] rounded-lg shadow-xl">
+      <img id="ad-image" src="Ad/ad1.jpg" alt="Ad Image"
+           class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-3 border-4 border-yellow-500 shadow-lg animate-scaleIn">
     </a>
-    <button id="close-ad" class="absolute -top-3 -right-3 bg-gray-800 text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg">✕</button>
+    <h2 id="ad-title" class="text-lg sm:text-xl font-extrabold text-yellow-800 mb-2">Eyeberry Gold</h2>
+    <p id="ad-text" class="text-xs sm:text-sm text-gray-800 mb-4">Marketing text goes here.</p>
+    <a id="ad-btn" href="#" target="_blank"
+       class="inline-block bg-yellow-500 text-white font-bold px-4 py-2 rounded-full shadow hover:bg-yellow-600 text-sm sm:text-base">
+      Buy Now
+    </a>
+    <button id="close-ad" class="absolute -top-3 -right-3 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg">✕</button>
   </div>
 </div>
 
 <!-- 🟢 Sara Duterte Support Pop-up -->
-<div id="sara-ad" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 z-20 hidden">
-  <div class="relative bg-green-700 rounded-xl shadow-xl p-6 max-w-sm text-center animate-slideUp">
-    <!-- Sara Image -->
-    <img src="Ad/sara.jpg" alt="Sara Duterte" 
-         class="w-32 h-32 rounded-full mx-auto mb-3 border-4 border-white shadow-lg">
-
-    <!-- Rotating Slogan -->
-    <h2 id="sara-slogan" class="text-xl font-bold mb-4 transition-opacity duration-700 opacity-100">
+<div id="sara-ad" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 z-30 hidden">
+  <div class="relative bg-green-700 rounded-xl shadow-xl p-6 sm:p-8 max-w-[90vw] sm:max-w-sm text-center animate-slideUp">
+    <img src="Ad/sara.jpg" alt="Sara Duterte" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-3 border-4 border-white shadow-lg">
+    <h2 id="sara-slogan" class="text-lg sm:text-xl font-bold mb-4 transition-opacity duration-700 opacity-100">
       One Philippines, One Future, One Sara.
     </h2>
-
-    <!-- Button -->
     <a href="https://www.facebook.com/indaysaraduterteofficial" target="_blank"
-       class="inline-block bg-white text-green-700 font-semibold px-4 py-2 rounded-full shadow hover:bg-gray-100">
+       class="inline-block bg-white text-green-700 font-semibold px-4 py-2 rounded-full shadow hover:bg-gray-100 text-sm sm:text-base">
       Learn More
     </a>
-
-    <!-- Close Button -->
-    <button id="closeSaraAd" 
-            class="absolute -top-3 -right-3 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg">
+    <button id="closeSaraAd" class="absolute -top-3 -right-3 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg">
       ✕
     </button>
   </div>
 </div>
-
 
 <!-- 🔎 Header -->
 <div class="flex flex-col items-center mb-4 mt-2">
@@ -106,7 +111,7 @@
       <!-- Slide 1 -->
       <div class="swiper-slide">
         <div class="grid grid-cols-3 gap-6">
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center text-center">
             <a href="https://surigaodelsur.gov.ph/" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/johnny.png" alt="Gov Johnny">
@@ -114,7 +119,7 @@
               <p class="mt-2 text-xs">Gov Johnny</p>
             </a>
           </div>
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center text-center">
             <a href="https://cantilan.gov.ph/" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/digoy.png" alt="Mayor Digoy">
@@ -122,7 +127,7 @@
               <p class="mt-2 text-xs">Mayor Digoy</p>
             </a>
           </div>
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center text-center">
             <a href="https://www.facebook.com/profile.php?id=100068345255709" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/cantilan.png" alt="Cantilan LGU">
@@ -130,24 +135,24 @@
               <p class="mt-2 text-xs">Cantilan LGU</p>
             </a>
           </div>
-          <div class="flex flex-col items-center">
-            <a href="cantilan.php" target="_blank" class="flex flex-col items-center">
+          <div class="flex flex-col items-center text-center">
+            <a href="cantilan.html" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/wecantilan.png" alt="We Cantilan">
               </div>
               <p class="mt-2 text-xs">We❤Cantilan</p>
             </a>
           </div>
-          <div class="flex flex-col items-center">
-            <a href="home.php" target="_blank" class="flex flex-col items-center">
+          <div class="flex flex-col items-center text-center">
+            <a href="home.html" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/GRADIO.png" alt="Gradio FM">
               </div>
               <p class="mt-2 text-xs">Gradio FM</p>
             </a>
           </div>
-          <div class="flex flex-col items-center">
-            <a href="smileflex/index.html" target="_blank" class="flex flex-col items-center">
+          <div class="flex flex-col items-center text-center">
+            <a href="smileflex.html" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/smileflex.png" alt="Smileflex">
               </div>
@@ -160,7 +165,7 @@
       <!-- Slide 2 -->
       <div class="swiper-slide">
         <div class="grid grid-cols-3 gap-6">
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center text-center">
             <a href="#" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/musify.png" alt="Musify">
@@ -168,7 +173,7 @@
               <p class="mt-2 text-xs">Musify</p>
             </a>
           </div>
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center text-center">
             <a href="#" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
                 <img src="assets/icons/gamehub.png" alt="Game Hub">
@@ -176,12 +181,90 @@
               <p class="mt-2 text-xs">Game Hub</p>
             </a>
           </div>
-          <div class="flex flex-col items-center">
+          <div class="flex flex-col items-center text-center">
             <a href="#" target="_blank" class="flex flex-col items-center">
               <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
-                <img src="assets/icons/nestapp.png" alt="Nest App">
+                <img src="assets/icons/orangeware.png" alt="OrangeWare">
               </div>
-              <p class="mt-2 text-xs">Nest App</p>
+              <p class="mt-2 text-xs">OrangeWare</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/wikipedia.png" alt="Wikipedia">
+              </div>
+              <p class="mt-2 text-xs">Wikipedia</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/ebooks.png" alt="eBooks">
+              </div>
+              <p class="mt-2 text-xs">eBooks</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/news.png" alt="News Daily">
+              </div>
+              <p class="mt-2 text-xs">News Daily</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide">
+        <div class="grid grid-cols-3 gap-6">
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/eatbulaga.png" alt="Eat Bulaga">
+              </div>
+              <p class="mt-2 text-xs">Eat Bulaga</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/showtime.jpg" alt="Showtime">
+              </div>
+              <p class="mt-2 text-xs">Showtime</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/wetube.png" alt="WeTube">
+              </div>
+              <p class="mt-2 text-xs">WeTube</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/videoke.png" alt="Videoke Star">
+              </div>
+              <p class="mt-2 text-xs">Videoke Star</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/bible.jpg" alt="Bible">
+              </div>
+              <p class="mt-2 text-xs">Bible</p>
+            </a>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <a href="#" target="_blank" class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-md bg-gray-700 app-icon">
+                <img src="assets/icons/google.jpg" alt="Google">
+              </div>
+              <p class="mt-2 text-xs">Google</p>
             </a>
           </div>
         </div>
@@ -191,7 +274,7 @@
   </div>
 </div>
 
-<!-- 🎙️ Radio Player -->
+<!-- 🎙️ Audio Player -->
 <div class="flex justify-center mt-6 mb-6">
   <div class="w-full max-w-4xl bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl shadow-lg p-4">
     <div class="flex justify-between items-center mb-2">
@@ -207,6 +290,8 @@
         🔴 LIVE — Now Streaming from Gradio Cantilan — DJ Blayne Duero Castillo 🎶
       </span>
     </div>
+
+    <audio id="audioPlayer" controls autoplay class="w-full"></audio>
 
     <div class="flex items-center justify-between mb-3">
       <div id="timeDisplay" class="text-lg font-mono">00:00</div>
@@ -245,74 +330,204 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-const swiper = new Swiper('.swiper',{ loop:false,pagination:{el:'.swiper-pagination',clickable:true} });
+// 🔄 Swiper
+const swiper = new Swiper('.swiper', {
+  loop: false,
+  pagination: { el: '.swiper-pagination', clickable: true }
+});
 
-// Ad overlay (default ads)
-const adOverlay=document.getElementById('ad-overlay'),adImage=document.getElementById('ad-image'),adLink=document.getElementById('ad-link');
-function showAd(img,link){ adImage.src=img||'Ad/ad1.jpg'; adLink.href=link||'#'; adOverlay.classList.remove('hidden'); setTimeout(hideAd,5000); }
-function hideAd(){ adOverlay.classList.add('hidden'); adImage.src='Ad/ad2.jpg'; adLink.href='#'; }
-setTimeout(()=>{ showAd('Ad/ad1.jpg','https://example.com'); },60000);
+// 🎯 Rotating Ads
+const adOverlay = document.getElementById('ad-overlay');
+const adImage = document.getElementById('ad-image');
+const adTitle = document.getElementById('ad-title');
+const adText = document.getElementById('ad-text');
+const adBtn = document.getElementById('ad-btn');
+const adLink = document.getElementById('ad-link');
 
-// Sara slogans
-  const slogans = [
-    "One Philippines, One Future, One Sara.",
-    "Inday ng Bayan."
-  ];
-  let sloganIndex = 0;
-  const sloganEl = document.getElementById("sara-slogan");
-  const saraPopup = document.getElementById("sara-ad");
+const ads = [
+  {
+    img: "Ad/ad1.jpg",
+    title: "Eyeberry Gold",
+    text: "Nourish your eyes with Eyeberry Gold — packed with antioxidants to support vision and protect from digital strain.",
+    btn: "Buy Now",
+    btnLink: "https://example.com/eyeberry-gold",
+    color: "yellow"
+  },
+  {
+    img: "Ad/ad2.jpg",
+    title: "Vision Plus",
+    text: "Support your eye health daily with Vision Plus capsules. Keep your eyes refreshed and protected.",
+    btn: "Learn More",
+    btnLink: "https://example.com/vision-plus",
+    color: "green"
+  },
+  {
+    img: "Ad/ad3.jpg",
+    title: "EyeCare Pro",
+    text: "EyeCare Pro formula provides antioxidants and nutrients to prevent digital eye strain.",
+    btn: "Shop Now",
+    btnLink: "https://example.com/eyecare-pro",
+    color: "blue"
+  },
+  {
+    img: "Ad/ad4.jpg",
+    title: "ClearSight",
+    text: "Boost your vision with ClearSight — advanced formula for sharper focus and eye comfort.",
+    btn: "Discover Now",
+    btnLink: "https://example.com/clearsight",
+    color: "purple"
+  },
+  {
+    img: "Ad/ad5.jpg",
+    title: "BrightEyes",
+    text: "Experience clearer vision with BrightEyes — premium eye care for all-day comfort.",
+    btn: "Try Now",
+    btnLink: "https://example.com/brighteyes",
+    color: "teal"
+  }
+];
 
-  // Show popup after 40s
-  setTimeout(() => {
-    saraPopup.classList.remove("hidden");
+let currentAd = 0;
 
-    // Auto-close after 5s
-    setTimeout(() => {
-      saraPopup.classList.add("hidden");
-    }, 5000);
+function showAd() {
+  const ad = ads[currentAd];
+  adImage.src = ad.img;
+  adTitle.textContent = ad.title;
+  adText.textContent = ad.text;
+  adBtn.textContent = ad.btn;
+  adBtn.href = ad.btnLink;
+  adLink.href = ad.btnLink;
 
-    // Rotate slogans every 5s with fade
-    setInterval(() => {
-      sloganEl.classList.add("opacity-0");
-      setTimeout(() => {
-        sloganIndex = (sloganIndex + 1) % slogans.length;
-        sloganEl.textContent = slogans[sloganIndex];
-        sloganEl.classList.remove("opacity-0");
-      }, 700);
-    }, 5000);
-
-  }, 40000);
-
-  // Manual close
-  document.getElementById("closeSaraAd").onclick = () => {
-    saraPopup.classList.add("hidden");
+  // Background & button colors
+  const bgClasses = {
+    yellow: "bg-yellow-100 text-yellow-800 border-yellow-500 hover:bg-yellow-600",
+    green: "bg-green-100 text-green-800 border-green-500 hover:bg-green-600",
+    blue: "bg-blue-100 text-blue-800 border-blue-500 hover:bg-blue-600",
+    purple: "bg-purple-100 text-purple-800 border-purple-500 hover:bg-purple-600",
+    teal: "bg-teal-100 text-teal-800 border-teal-500 hover:bg-teal-600"
+  };
+  const btnClasses = {
+    yellow: "bg-yellow-500 text-white hover:bg-yellow-600",
+    green: "bg-green-500 text-white hover:bg-green-600",
+    blue: "bg-blue-500 text-white hover:bg-blue-600",
+    purple: "bg-purple-500 text-white hover:bg-purple-600",
+    teal: "bg-teal-500 text-white hover:bg-teal-600"
   };
 
-// Weather
-const weatherSpan=document.getElementById('weather');
-async function fetchWeather(){
-  try{
-    const res=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=9.625&longitude=123.866&current_weather=true`);
-    const data=await res.json(),temp=Math.round(data.current_weather.temperature),code=data.current_weather.weathercode;
-    weatherSpan.innerHTML=`${getIcon(code)} ${temp}°C`;
-  }catch{ weatherSpan.textContent='🌡️ N/A'; }
+  adOverlay.firstElementChild.className = `relative rounded-xl shadow-xl p-6 sm:p-8 max-w-[90vw] sm:max-w-sm text-center animate-pulse-ad ${bgClasses[ad.color]}`;
+  adBtn.className = `inline-block font-bold px-4 py-2 rounded-full shadow ${btnClasses[ad.color]} text-sm sm:text-base`;
+
+  adOverlay.classList.remove("hidden");
+  setTimeout(hideAd, 6000);
 }
-function getIcon(c){ if(c===0)return'☀️'; if([1,2].includes(c))return'⛅'; if(c===3)return'☁️'; if([45,48].includes(c))return'🌫️'; if([51,53,55,56,57].includes(c))return'🌦️'; if([61,63,65,66,67].includes(c))return'🌧️'; if([71,73,75,77].includes(c))return'❄️'; if([80,81,82].includes(c))return'🌧️'; if(c===95)return'⛈️'; return'🌡️'; }
-fetchWeather(); setInterval(fetchWeather,600000);
 
-// Clock + audio
-function updateClock(){ document.getElementById("liveClock").textContent=new Date().toLocaleTimeString(); }
-setInterval(updateClock,1000); updateClock();
-const timeDisplay=document.getElementById("timeDisplay"),volumeControl=document.getElementById("volumeControl");
-const audio=new Audio("http://192.168.0.111:8090"); // stream source
-window.addEventListener("load",()=>{ audio.play().catch(()=>console.log("Autoplay blocked until interaction")); });
-audio.ontimeupdate=()=>{ const m=Math.floor(audio.currentTime/60),s=Math.floor(audio.currentTime%60).toString().padStart(2,"0"); timeDisplay.textContent=`${m}:${s}`; };
-volumeControl.addEventListener("input",e=>{ audio.volume=e.target.value; });
+function hideAd() {
+  adOverlay.classList.add("hidden");
+  currentAd = (currentAd + 1) % ads.length;
+}
 
-// Apps menu
+setInterval(showAd, 60000);
+document.getElementById("close-ad").onclick = hideAd;
+
+// 💚 Sara popup
+const slogans = ["One Philippines, One Future, One Sara.", "Inday ng Bayan."];
+let sloganIndex = 0;
+const sloganEl = document.getElementById("sara-slogan"),
+      saraPopup = document.getElementById("sara-ad");
+let saraInterval;
+
+function startSaraPopup() {
+  saraPopup.classList.remove("hidden");
+  setTimeout(() => { saraPopup.classList.add("hidden"); }, 5000);
+
+  saraInterval = setInterval(() => {
+    sloganEl.classList.add("opacity-0");
+    setTimeout(() => {
+      sloganIndex = (sloganIndex + 1) % slogans.length;
+      sloganEl.textContent = slogans[sloganIndex];
+      sloganEl.classList.remove("opacity-0");
+    }, 700);
+  }, 5000);
+}
+
+setTimeout(startSaraPopup, 40000);
+
+document.getElementById("closeSaraAd").onclick = () => {
+  saraPopup.classList.add("hidden");
+  clearInterval(saraInterval);
+};
+
+// ⛅ Weather
+const weatherSpan = document.getElementById('weather');
+async function fetchWeather() {
+  try {
+    const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=9.33&longitude=125.97&current_weather=true");
+    const data = await res.json();
+    const temp = Math.round(data.current_weather.temperature);
+    const code = data.current_weather.weathercode;
+    weatherSpan.innerHTML = `${getIcon(code)} ${temp}°C`;
+  } catch {
+    weatherSpan.textContent = '🌡️ N/A';
+  }
+}
+function getIcon(c) {
+  if(c===0) return '☀️';
+  if([1,2].includes(c)) return '⛅';
+  if(c===3) return '☁️';
+  if([45,48].includes(c)) return '🌫️';
+  if([51,53,55,56,57].includes(c)) return '🌦️';
+  if([61,63,65,66,67].includes(c)) return '🌧️';
+  if([71,73,75,77].includes(c)) return '❄️';
+  if([80,81,82].includes(c)) return '🌧️';
+  if(c===95) return '⛈️';
+  return '🌡️';
+}
+fetchWeather();
+setInterval(fetchWeather, 600000);
+
+// 🎶 Playlist + Autoplay Unlock
+const playlist = ["music/dj.mp3","music/song2.mp3","music/song3.mp3"];
+let current = 0;
+const audio = document.getElementById("audioPlayer");
+audio.src = playlist[current];
+
+audio.addEventListener("ended", () => {
+  current = (current + 1) % playlist.length;
+  audio.src = playlist[current];
+  audio.play();
+});
+
+document.body.addEventListener("click", () => {
+  if(audio.paused) audio.play();
+}, { once:true });
+
+// ⏰ Live Clock
+const liveClock = document.getElementById("liveClock");
+function updateLiveClock() {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  liveClock.textContent = `${h}:${m}`;
+}
+setInterval(updateLiveClock,1000);
+updateLiveClock();
+
+// 🎼 Playback Timer
+const timeDisplay = document.getElementById("timeDisplay");
+audio.addEventListener("timeupdate", () => {
+  const m = Math.floor(audio.currentTime/60);
+  const s = Math.floor(audio.currentTime%60);
+  timeDisplay.textContent = `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+});
+
+// 🔊 Volume
+document.getElementById("volumeControl")
+  .addEventListener("input", e => { audio.volume = e.target.value; });
+
+// 📱 Apps Menu
 function openAppsMenu(){ document.getElementById("appsMenu").classList.remove("hidden"); }
 function closeAppsMenu(){ document.getElementById("appsMenu").classList.add("hidden"); }
 </script>
+
 </body>
 </html>
-
